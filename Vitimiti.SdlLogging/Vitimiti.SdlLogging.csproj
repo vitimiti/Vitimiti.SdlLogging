@@ -10,13 +10,20 @@
 
   <PropertyGroup Label="Package">
     <IsPackable>true</IsPackable>
-    <PackageId>Vitimiti.Sdl3</PackageId>
+    <PackageId>Vitimiti.SdlLogging</PackageId>
     <Version>1.0.0</Version>
     <Authors>Vitimiti</Authors>
     <Description>A logging provider for SDL3 that integrates with Microsoft.Extensions.Logging.</Description>
+    <PackageTags>sdl;sdl3;logging;ilogger;dotnet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/vitimiti/Vitimiti.SdlLogging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vitimiti/Vitimiti.SdlLogging.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
     <LicenseExpression>MIT</LicenseExpression>
   </PropertyGroup>
 

@@ -61,3 +61,28 @@ internal sealed class SdlNativeContext(ILoggerFactory loggerFactory) : INativeCo
 ```
 
 This will automatically modify SDL's log level to the same level as your `ILogger` so that logging can happen in a controlled, expected manner.
+
+## Automated NuGet Publishing on GitHub
+
+This repository includes a GitHub Actions workflow in `.github/workflows/nuget.yml`.
+
+### What it does
+
+- Builds the solution on every push to `main`, every pull request, and every `v*` tag.
+- Packs the NuGet package on tags matching `v*`.
+- Publishes the `.nupkg` and `.snupkg` files to NuGet.org.
+
+### Release flow
+
+The workflow derives the NuGet version from the git tag name, so a tag like `v1.2.3` publishes version `1.2.3`.
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+### Notes
+
+- The project file still keeps a default `Version` for local packing, but tagged CI releases override it.
+- The NuGet API key is only stored as the `NUGET_API_KEY` GitHub Actions secret. Do not commit it, add it to the workflow file directly, or store it in source control.
+- You can use the same API key locally with `dotnet nuget push`, but prefer a dedicated key for CI so you can revoke it without affecting your local setup.
