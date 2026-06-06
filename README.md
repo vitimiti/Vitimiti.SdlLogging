@@ -71,10 +71,13 @@ This repository includes a GitHub Actions workflow in `.github/workflows/nuget.y
 - Builds the solution on every push to `main`, every pull request, and every `v*` tag.
 - Packs the NuGet package on tags matching `v*`.
 - Publishes the `.nupkg` and `.snupkg` files to NuGet.org.
+- Creates a GitHub Release for each `v*` tag and attaches the generated packages.
 
 ### Release flow
 
 The workflow derives the NuGet version from the git tag name, so a tag like `v1.2.3` publishes version `1.2.3`.
+
+When the tag build succeeds, GitHub also gets a matching Release page with the generated NuGet package files attached as downloadable assets.
 
 ```bash
 git tag v1.0.0
