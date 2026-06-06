@@ -1,13 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
+  <PropertyGroup Label="Globals">
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsAsErrors>true</WarningsAsErrors>
   </PropertyGroup>
 
-  <ItemGroup>
+  <PropertyGroup Label="Package">
+    <IsPackable>true</IsPackable>
+    <PackageId>Vitimiti.Sdl3</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Vitimiti</Authors>
+    <Description>A logging provider for SDL3 that integrates with Microsoft.Extensions.Logging.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <LicenseExpression>MIT</LicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup Label="PackageFiles">
+    <None Include="../README.md" Pack="true" PackagePath="\" Link="README.md" />
+    <None Include="../LICENSE.md" Pack="true" PackagePath="\" Link="LICENSE.md" />
+  </ItemGroup>
+
+  <ItemGroup Label="Dependencies">
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.8" />
   </ItemGroup>
 </Project>
