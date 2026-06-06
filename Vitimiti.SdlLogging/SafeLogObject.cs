@@ -30,6 +30,9 @@ using Vitimiti.SdlLogging.Ffi;
 
 namespace Vitimiti.SdlLogging;
 
+/// <summary>
+/// A safe wrapper around SDL's logging system that integrates with <see cref="ILogger"/>.
+/// </summary>
 public sealed class SafeLogObject : IDisposable
 {
     private delegate void LogOutputFunction(
@@ -42,6 +45,10 @@ public sealed class SafeLogObject : IDisposable
 
     private bool _disposedValue;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SafeLogObject"/> class.
+    /// </summary>
+    /// <param name="logger">The logger to use for SDL log messages.</param>
     public SafeLogObject(ILogger<SafeLogObject> logger)
     {
         _logger = logger;
@@ -79,12 +86,18 @@ public sealed class SafeLogObject : IDisposable
         _disposedValue = true;
     }
 
+    /// <summary>
+    /// Finalizer to ensure that unmanaged resources are released if Dispose is not called.
+    /// </summary>
     ~SafeLogObject()
     {
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
         Dispose(disposing: false);
     }
 
+    /// <summary>
+    /// Disposes the <see cref="SafeLogObject"/> and releases any unmanaged resources.
+    /// </summary>
     public void Dispose()
     {
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
